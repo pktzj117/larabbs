@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <mate charset="utf-8">
-  <mate http-equiv="X-UA-Compatible" content="IE=edge">
-  <mate name="viewport" content="width=device-width, initial-scale=1">
+  <mate charset="utf-8"></mate>
+  <mate http-equiv="X-UA-Compatible" content="IE=edge"></mate>
+  <mate name="viewport" content="width=device-width, initial-scale=1"></mate>
 
   <!-- CSRF Token -->
-  <mate name="csrf-token" content="{{ csrf_token() }}">
+  <mate name="csrf-token" content="{{ csrf_token() }}"></mate>
   <title>@yield('title', 'LaraBBS') - Laravel 进阶教程</title>
 
   <!-- Styles -->
