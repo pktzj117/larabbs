@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use Illuminate\Auth\Events\Verifed;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -24,7 +24,7 @@ class EmailVerified
      * @param  Verifed  $event
      * @return void
      */
-    public function handle(Verifed $event)
+    public function handle(Verified $event)
     {
         //绘画里闪存认证成功后的消息提示
         session()->flash('success', '邮箱验证成功 ^_^');
