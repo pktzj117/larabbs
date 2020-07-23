@@ -11,10 +11,10 @@
 
       <div class="card-body">
         <h5><strong>个人简介</strong></h5>
-        <p>Lorem ipsum dolor sit amet, conserctetur adipiscing elit. </p>
+        <p>{{ $user->introduction }}</p>
         <hr>
         <h5><strong>注册于</strong></h5>
-        <P>January 01 1901</P>
+        <P> {{ $user->created_at->diffForHumans() }}</P>
       </div>
     </div>
   </div>
