@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <mate charset="utf-8"></mate>
-  <mate http-equiv="X-UA-Compatible" content="IE=edge"></mate>
-  <mate name="viewport" content="width=device-width, initial-scale=1"></mate>
-
+  <meta  charset="utf-8" />
+  <meta  http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta  name="referrer" content="no-referrer" />
   <!-- CSRF Token -->
-  <mate name="csrf-token" content="{{ csrf_token() }}"><
+  <meta  name="csrf-token" content="{{ csrf_token() }}" />
   <title>@yield('title', 'LaraBBS') - Laravel 进阶教程</title>
 
   <!-- Styles -->
-  <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+  <link href="{{ mix('css/app.css') }}" rel="stylesheet" />
 
 </head>
 <body>
@@ -32,4 +32,5 @@
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
 </body>
+
 </html>
