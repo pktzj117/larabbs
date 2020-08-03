@@ -39,48 +39,26 @@
           <div class="topic-body mt-4 mb-4">
             {!! $topic->body !!}
           </div>
-
-          <div class="operate">
-            <hr>
-            <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
-              <i class="far fa-edit"></i> 编辑
-            </a>
-
-            <a href="#" class="btn btn-outline-secondary btn-sm" role="button">
-              <i class="far fa-edit"></i> 删除
-            </a>
-          </div>
+          @can('update', $topic)
+            <div class="operate">
+              <hr>
+              <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
+                <i class="far fa-edit"></i> 编辑
+              </a>
+              <form action="{{ route('topics.destroy', $topic->id) }}" method="post"
+                  style="display: inline-block;"
+                  onsubmit="return confirm('您确定要删除吗? ');">
+                  {{ csrf_field()}}
+                  {{ method_field('DELETE')}}
+                <button type="submit" class="btn btn-outline-secondary btn-sm" >
+                  <i class="far fa-edit"></i> 删除
+                </button>
+              </form>
+            </div>
+          @endcan
         </div>
       </div>
     </div>
   </div>
 @stop
 
-@section('styles')
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
-@stop
-
-@section('scripts')
-  <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
-
-  <script>
-    $(document).ready(function() {
-      var editor = new Simditor({
-        textarea: $('#editor'),
-        upload: {
-          url: '{{ route('topics.upload_image') }}',
-          params: {
-            _token: '{{ csrf_token() }}'
-          },
-          fileKey: 'upload_file',
-          connectionCount: 3,
-          leaveConfirm: '文件上传中，关闭此页面将取消上传。'
-        },
-        pasteImage: true,
-      });
-    });
-  </script>
-@stop
